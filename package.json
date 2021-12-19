@@ -1,0 +1,16 @@
+{
+  "name": "my-contacts",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "author": "Bryan Martins",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "nodemon": "^2.0.13",
+    "pg": "^8.7.1"
+  },
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  }
+}
