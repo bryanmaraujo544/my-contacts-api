@@ -1,14 +1,15 @@
 const express = require('express');
 require('express-async-errors'); // Now we can hadle async errors
+
 const routes = require('./routes');
+const cors = require('./app/middlewares/cors');
+const errorHander = require('./app/middlewares/errorHandler');
+
 const app = express();
 
 app.use(express.json());
+app.use(cors);
 app.use(routes);
-// We need to take these 4 params for Express get that this is a handle error
-app.use((error, req, res, next) => {
-    console.log(error);
-    res.sendStatus(500);
-});
+app.use(errorHander);
 
 app.listen(3001, console.log('🔥 Server started at port 3001'));

@@ -6,9 +6,6 @@ class ContactController {
         const { orderBy } = req.query;
         const contacts = await ContactsRepository.findAll(orderBy);
 
-        // Here we are enabling the address http://local... access the backend
-        // I can use the wildcard symbol to enables any address to has access to the server
-        res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
         res.json(contacts);
     }
 
