@@ -5,6 +5,10 @@ class ContactController {
     async index(req, res) {
         const { orderBy } = req.query;
         const contacts = await ContactsRepository.findAll(orderBy);
+
+        // Here we are enabling the address http://local... access the backend
+        // I can use the wildcard symbol to enables any address to has access to the server
+        res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
         res.json(contacts);
     }
 
@@ -16,7 +20,7 @@ class ContactController {
             return res.status(404).json({ error: 'User Not Found' });
         }
         console.log(contact);
-        res.json(contact);s
+        res.json(contact);
     }
 
     async store(req, res) {
