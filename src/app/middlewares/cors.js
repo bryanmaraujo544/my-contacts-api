@@ -7,9 +7,8 @@ module.exports = (req, res, next) => {
     // request that can be made, because this can be dangerous
     res.setHeader('Access-Control-Allow-Methods', '*');
 
-
     res.setHeader('Access-Control-Allow-Headers', '*');
-
+    res.setHeader('Access-Control-Max-Age', '10');
 
     next();
 };
